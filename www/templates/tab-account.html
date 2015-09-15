@@ -1,0 +1,106 @@
+<ion-view view-title="Profile">
+    <!-- ion-header-bar class="bar-stable">
+        <h1 class="title">Profile</h1>
+        <a class="button button-icon icon ion-ios-gear-outline"></a>
+    </ion-header-bar-->
+    <ion-content>
+        <ion-list>
+            <ion-item class="item item-thumbnail-left item-icon-right" href="#/tab/account/edit">
+                <img src="http://placehold.it/80/80">
+                <h2 class="padding-top">{{ profile.user.first_name }} {{ profile.user.last_name }} ({{ profile.user.username }})</h2>
+                <p>{{ profile.location}}</p>
+                <p>{{ profile.age ? profile.age + ' years old' : ''}} </p>
+                <p>{{ profile.gender }}</p>
+                <i class="icon ion-chevron-right"></i>
+            </ion-item>
+
+            <ion-toggle ng-model="profile.ride_matching" ng-change="updateProfile()" toggle-class="toggle-balanced">Ride Matching</ion-toggle>
+
+            <div class="item">
+                <div class="padding-bottom">Riding Categories</div>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Road
+                    </div>
+                    <select ng-model="profile.category_road" ng-change="updateProfile()">
+                        <option value="0">Not Set</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Mountain
+                    </div>
+                    <select ng-model="profile.category_mtb" ng-change="updateProfile()">
+                        <option value="0">Not Set</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Track
+                    </div>
+                    <select ng-model="profile.category_track" ng-change="updateProfile()">
+                        <option value="0">Not Set</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        CX
+                    </div>
+                    <select ng-model="profile.category_cx" ng-change="updateProfile()">
+                        <option value="0">Not Set</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </label>
+            </div>
+
+
+            <div class="item">
+                <div class="padding-bottom">Licenses</div>
+                <div class="item" ng-repeat="license in profile.licenses">
+                    {{license.license_type}}<span class="item-note">{{license.value}}</span>
+                </div>
+                <button class="button button-block button-stable">
+                    Edit Licenses
+                </button>
+            </div>
+
+            <div class="item">
+                <div class="padding-bottom">Strava Data</div>
+                <div class="list">
+                    <div class="item">
+                        Weight<span class="item-note">132</span>
+                    </div>
+                    <div class="item">
+                        Height<span class="item-note">5' 6"</span>
+                    </div>
+                    <div class="item">
+                        Power<span class="item-note">500,000W</span>
+                    </div>
+                </div>
+            </div>
+
+            <!--div class="item" ng-click="updateProfile()">
+                <button class="button button-block button-balanced">
+                    Save
+                </button>
+            </div-->
+        </ion-list>
+
+        <!-- ion-toggle ng-model="airplaneMode" toggle-class="toggle-balanced">Ride Matching</ion-toggle -->
+    </ion-content>
+</ion-view>
